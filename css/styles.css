@@ -61,11 +61,7 @@ legend {
     border-bottom: 1px solid #e5e5e5;
 }
 
-label,
-.control-label,
-.help-block,
-.checkbox,
-.radio {
+label {
     font-weight: normal;
 }
 
