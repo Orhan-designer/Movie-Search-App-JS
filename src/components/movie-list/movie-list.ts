@@ -8,6 +8,10 @@ export class MovieList {
     template?: string;
     data?: any;
   }): void {
+    if (!this.container) {
+      return;
+    }
+
     if (template) {
       this.container!.innerHTML = template;
       return;

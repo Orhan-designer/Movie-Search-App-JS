@@ -1,9 +1,11 @@
-import { MovieSearchPanel } from './components/movie-search-panel/movie-search-panel';
+import { MovieSearchPanel } from './src/components/movie-search-panel/movie-search-panel';
 
 class MovieSearchApp {
-  constructor() {
+  public load(): void {
     new MovieSearchPanel().loadTemplate();
   }
 }
 
-new MovieSearchApp();
+const app = new MovieSearchApp();
+
+app.load();
