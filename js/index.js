@@ -3,20 +3,23 @@ const searchBtn = document.getElementById('search-by-title-button');
 const showResults = document.getElementById('search-by-title-response');
 const key = '53020af1';
 
-const getMovies = async () => {
-    const movieName = title.value;
-    const url = `http://www.omdbapi.com/?t=${movieName}&apikey=${key}`;
+class getMovies {
+    constructor() { }
 
-    if (movieName.length <= 0) {
-        showResults.innerHTML = `<h3 class="msg">Please Enter A Movie Name</h3>`;
-        return;
-    }
+    async getMovie() {
+        const movieName = title.value;
+        const url = `http://www.omdbapi.com/?t=${movieName}&apikey=${key}`;
 
-    await fetch(url)
-        .then((resp) => resp.json())
-        .then((data) => {
-            if (data.Response === "True") {
-                showResults.innerHTML = `
+        if (movieName.length <= 0) {
+            showResults.innerHTML = `<h3 class="msg">Please Enter A Movie Name</h3>`;
+            return;
+        }
+
+        await fetch(url)
+            .then((resp) => resp.json())
+            .then((data) => {
+                if (data.Response === "True") {
+                    showResults.innerHTML = `
                     <div class="info">
                         <img src=${data.Poster} class="poster">
                         <div>
@@ -31,12 +34,13 @@ const getMovies = async () => {
                         <p><b>Actors</b>: ${data.Actors}</p>
                         <p><b>Plot</b>: ${data.Plot}</p>
                     </div>`;
-            }
-        })
-        .catch((error) => {
-            console.log(error);
-        });
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
 }
 
-searchBtn.addEventListener('click', getMovies);
+searchBtn.addEventListener('click', new getMovies().getMovie);
 showResults.addEventListener('load', getMovies);
