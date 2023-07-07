@@ -28,4 +28,16 @@ select {
 
 .btn-sm {
   padding: 8px 16px;
+  cursor: pointer;
+}
+
+.btn-sm:hover {
+  background-color: red;
+  color: white;
+}
+
+.sub-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
