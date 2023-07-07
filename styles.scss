@@ -1,0 +1,39 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 15px;
+	line-height: 1.42857143;
+	color: #222222;
+	background-color: #ffffff;
+}
+
+.page-header {
+	padding-bottom: 9.5px;
+	margin: 42px 0 21px;
+	border-bottom: 1px solid #dddddd;
+}
+
+.page-header h1 {
+	font-size: 4em;
+	letter-spacing: -1px;
+}
+
+.bs-component {
+	position: relative;
+}
+
+legend {
+	display: block;
+	width: 100%;
+	padding: 0 0 8px 0;
+	margin-bottom: 21px;
+	font-size: 19px;
+	font-weight: 300;
+	line-height: inherit;
+	color: #333333;
+	border: 0;
+	border-bottom: 1px solid #e5e5e5;
+}
