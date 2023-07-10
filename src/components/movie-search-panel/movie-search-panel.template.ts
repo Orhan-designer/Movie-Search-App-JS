@@ -9,30 +9,23 @@ export const MOVIE_SEARCH_PANEL_TEMPLATE = `
       <input type="text" id="yearTo" name="yearTo" class="input-small" />
 
       <div class="movie-type">
-        <select name="movieType">
-          <option value="" selected="">Film</option>
-          <option value="">TV Show</option>
-          <option value="">TV Series</option>
-          <option value="">Mini Series</option>
-          <option value="">All</option>
+        <select class="movieType">
+          <option value="--">--</option>
+          <option value="FILM">FILM</option>
+          <option value="TV_SHOW">TV SHOW</option>
+          <option value="TV_SERIES">TV SERIES</option>
+          <option value="MINI_SERIES">MINI SERIES</option>
+          <option value="ALL">ALL</option>
         </select>
       </div>
       
-      <select name="genres"></select>
+      <input type="text" id="genres" />
 
       <div class="order">
-        <select name="order">
-          <option value="">Rating</option>
-          <option value="">Amount of votes</option>
-          <option value="">Year</option>
-        </select>
-      </div>
-      
-      <div class="plot">
-        <label class="control-label" for="plot">Plot:</label>
-        <select name="plot" id="plot">
-          <option value="" selected="">Short</option>
-          <option value="full">Full</option>
+        <select class="order">
+          <option value="RATING">Rating</option>
+          <option value="AMOUNT_OF_VOTES">Amount of votes</option>
+          <option value="YEAR">Year</option>
         </select>
       </div>
       
