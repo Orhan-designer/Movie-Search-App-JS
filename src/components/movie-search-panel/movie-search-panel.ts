@@ -1,11 +1,13 @@
 import './movie-search-panel.scss';
 import { MOVIE_SEARCH_PANEL_TEMPLATE } from './movie-search-panel.template';
-import { MovieService } from '../../services/movie-search';
+import { MovieService } from '../../services/movie-service';
+import { SearchParams } from '../../models/movie.model';
+import { MovieList } from '../movie-list/movie-list';
 
 export class MovieSearchPanel {
   private container = document.querySelector('#movie-search-panel');
-  private movieList = document.querySelector('#movie-list');
   private movieService = new MovieService();
+  private movieList = new MovieList();
 
   public loadTemplate(): void {
     if (this.container) {
@@ -14,29 +16,26 @@ export class MovieSearchPanel {
     }
   }
 
-  public async getMovie(item?: any) {
-    await this.movieService.getMovies(item?.value).then(data => {
-      for (const item of data.items) {
-        const div = document.createElement('div');
-        div.className = 'info';
-        div.innerHTML = `
-              <div>
-                <img src=${item.posterUrl} class="poster">
-              </div>
-              <div>
-                <h2>${item.nameOriginal}</h2>
-                <div class="rating">
-                    <p><b>Rating</b>: ${item.ratingImdb}</p>
-                </div>
-              </div>
-              <div class="sub-info">
-                <p><b>Year</b>: ${item.year}</p>
-                <p><b>Type</b>: ${item.type}</p>
-              </div>`;
+  public async getMovie() {
+    const keyword = (<HTMLInputElement>document.querySelector('#keyword'))?.value;
+    const type = (<HTMLSelectElement>document.querySelector('.movieType'))?.value;
+    const order = (<HTMLSelectElement>document.querySelector('.orderType'))?.value;
+    const genres = (<HTMLInputElement>document.querySelector('#genres'))?.value;
+    const yearFrom = (<HTMLInputElement>document.querySelector('#year-from'))?.value;
+    const yearTo = (<HTMLInputElement>document.querySelector('#year-to'))?.value;
 
-        this.movieList?.append(div);
-      }
-    });
+    const params: Partial<SearchParams> = {
+      ...(!!keyword && { keyword }),
+      ...(!!type && { type }),
+      ...(!!order && { order }),
+      ...(!!genres && { genres }) as any, //use 'as' because 'params' give an error (Types of property 'genres' are incompatible)
+      ...(!!yearFrom && +yearFrom <= 3000 && +yearFrom >= 1000 && { yearFrom }),
+      ...(!!yearTo && +yearTo <= 3000 && +yearTo >= 1000 && { yearTo })
+    }
+
+    const pars = Object.fromEntries(Object.entries(params).filter(([_, value]) => !!value));
+    const service = await this.movieService.getMovies$(pars);
+    this.movieList.renderTemplate({ data: service.items });
   }
 
   private addListenerToSearchButton(): void {

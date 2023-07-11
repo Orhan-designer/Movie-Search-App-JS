@@ -1,12 +1,13 @@
+import { SearchParams } from "../../models/movie.model";
 export class MovieList {
-  private container = document.querySelector('#movie-list');
+  private container = document.querySelector('#movie-list') as HTMLDivElement;
 
-  public loadTemplate({
+  public renderTemplate({
     template,
     data
   }: {
     template?: string;
-    data?: any;
+    data?: SearchParams;
   }): void {
     if (!this.container) {
       return;
@@ -17,21 +18,27 @@ export class MovieList {
       return;
     }
 
-    this.container!.innerHTML = `
-      <div class="info">
-        <img src=${data.Poster} class="poster">
+    Array.from(data as any).filter((el: any) => {
+      const div = document.createElement('div');
+
+      div.className = 'info';
+      div.innerHTML = `
         <div>
-          <h2>${data.Title}</h2>
+          <img src=${el.posterUrl} class="poster">
+        </div>
+        <div>
+          <h2>${el.nameOriginal}</h2>
           <div class="rating">
-              <p><b>Rating</b>: ${data.imdbRating}</p>
+            <p><b>Rating</b>: ${el.ratingImdb}</p>
           </div>
         </div>
-      </div>
-      <div class="sub-info">
-        <p><b>Year</b>: ${data.Year}</p>
-        <p><b>Actors</b>: ${data.Actors}</p>
-        <p><b>Plot</b>: ${data.Plot}</p>
-      </div>
-    `;
+        <div class="sub-info">
+          <p><b>Year</b>: ${el.year}</p>
+          <p><b>Type</b>: ${el.type}</p>
+          <p><b>Genres</b>: ${el.genres.map((value: any) => value.genre)}</p>
+        </div>`;
+
+      this.container?.append(div);
+    });
   }
 }

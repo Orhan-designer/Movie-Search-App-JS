@@ -1,31 +1,32 @@
 export const MOVIE_SEARCH_PANEL_TEMPLATE = `
   <form class="well form-search" id="search-by-title-form">
     <div class="sub-container">
-      <label class="control-label" for="title">Title:</label>
-      <input type="text" id="title" name="title" class="input-small" />
-      <label class="control-label" for="yearFrom">Year from:</label>
-      <input type="text" id="yearFrom" name="yearFrom" class="input-small" />
-      <label class="control-label" for="yearTo">Year to:</label>
-      <input type="text" id="yearTo" name="yearTo" class="input-small" />
+      <label class="control-label" for="keyword">Title:</label>
+      <input type="text" id="keyword" name="keyword" class="input-small" />
+      <label class="control-label" for="year-from">Year from:</label>
+      <input type="text" id="year-from" name="year-from" class="input-small" />
+      <label class="control-label" for="year-to">Year to:</label>
+      <input type="text" id="year-to" name="year-to" class="input-small" />
 
       <div class="movie-type">
         <select class="movieType">
-          <option value="--">--</option>
+          <option value>--</option>
           <option value="FILM">FILM</option>
-          <option value="TV_SHOW">TV SHOW</option>
-          <option value="TV_SERIES">TV SERIES</option>
-          <option value="MINI_SERIES">MINI SERIES</option>
+          <option value="TV_SHOW">TV_SHOW</option>
+          <option value="TV_SERIES">TV_SERIES</option>
+          <option value="MINI_SERIES">MINI_SERIES</option>
           <option value="ALL">ALL</option>
         </select>
       </div>
       
-      <input type="text" id="genres" />
+      <input type="text" id="genres" name="genres" />
 
       <div class="order">
-        <select class="order">
-          <option value="RATING">Rating</option>
-          <option value="AMOUNT_OF_VOTES">Amount of votes</option>
-          <option value="YEAR">Year</option>
+        <select class="orderType">
+          <option value>--</option>
+          <option value="RATING">RATING</option>
+          <option value="NUM_VOTE">NUM_VOTE</option>
+          <option value="YEAR">YEAR</option>
         </select>
       </div>
       
