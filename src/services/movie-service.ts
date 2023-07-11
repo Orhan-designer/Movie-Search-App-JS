@@ -1,4 +1,4 @@
-import { API_KEY, getFilmsUrl } from "../constants/constants";
+import { API_KEY, FILMS_URL } from "../constants/constants";
 import { SearchParams } from "../models/movie.model";
 
 export class MovieService {
@@ -9,7 +9,7 @@ export class MovieService {
             searchParams.append(param, params[param]);
         }
 
-        return await fetch(`${getFilmsUrl}?${searchParams}`, {
+        return await fetch(`${FILMS_URL}?${searchParams}`, {
             method: 'GET',
             headers: {
                 'X-API-KEY': API_KEY,
