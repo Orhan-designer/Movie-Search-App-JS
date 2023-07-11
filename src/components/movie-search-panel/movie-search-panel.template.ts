@@ -9,6 +9,7 @@ export const MOVIE_SEARCH_PANEL_TEMPLATE = `
       <input type="text" id="year-to" name="year-to" class="input-small" />
 
       <div class="movie-type">
+        <label class="control-label" for="movieType">Types:</label>
         <select class="movieType">
           <option value>--</option>
           <option value="FILM">FILM</option>
@@ -19,9 +20,11 @@ export const MOVIE_SEARCH_PANEL_TEMPLATE = `
         </select>
       </div>
       
+      <label class="control-label" for="genres">Genres:</label>
       <input type="text" id="genres" name="genres" />
 
       <div class="order">
+        <label class="control-label" for="orderType">Order:</label>
         <select class="orderType">
           <option value>--</option>
           <option value="RATING">RATING</option>
