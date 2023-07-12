@@ -19,6 +19,7 @@ body {
 .page-header h1 {
 	font-size: 4em;
 	letter-spacing: -1px;
+	text-align: center;
 }
 
 .bs-component {
@@ -36,4 +37,36 @@ legend {
 	color: #333333;
 	border: 0;
 	border-bottom: 1px solid #e5e5e5;
+}
+
+.hide {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.poster {
+	max-width: 200px;
+	max-height: 300px;
+}
+
+.info {
+	width: 500px;
+	height: 600px;
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	align-items: center;
+	box-shadow: 1px 1px 7px 1px black;
+	margin: 5px 0;
+}
+
+.info h2 {
+	font-size: 20px;
+}
+
+.info p {
+	font-size: 18px;
+	text-align: center;
 }

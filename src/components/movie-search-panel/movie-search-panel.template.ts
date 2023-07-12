@@ -1,17 +1,40 @@
 export const MOVIE_SEARCH_PANEL_TEMPLATE = `
   <form class="well form-search" id="search-by-title-form">
-    <div>
-      <label class="control-label" for="title">Title:</label>
-      <input type="text" id="title" name="title" class="input-small" />
-      <label class="control-label" for="year">Year:</label>
-      <input type="text" id="year" name="year" class="input-small" />
-      <label class="control-label">Plot:</label>
+    <div class="sub-container">
+      <label class="control-label" for="keyword">Title:</label>
+      <input type="text" id="keyword" name="keyword" class="input-small" />
+      <label class="control-label" for="year-from">Year from:</label>
+      <input type="text" id="year-from" name="year-from" class="input-small" />
+      <label class="control-label" for="year-to">Year to:</label>
+      <input type="text" id="year-to" name="year-to" class="input-small" />
 
-      <select name="plot">
-        <option value="" selected="">Short</option>
-        <option value="full">Full</option>
-      </select>
-
+      <div class="movie-type">
+        <label class="control-label" for="movieType">Types:</label>
+        <select class="movieType">
+          <option value>--</option>
+          <option value="FILM">FILM</option>
+          <option value="TV_SHOW">TV_SHOW</option>
+          <option value="TV_SERIES">TV_SERIES</option>
+          <option value="MINI_SERIES">MINI_SERIES</option>
+          <option value="ALL">ALL</option>
+        </select>
+      </div>
+      
+      <div class="genres">
+        <label class="control-label" for="genres">Genres:</label>
+        <select id="genres"></select>
+      </div>
+      
+      <div class="order">
+        <label class="control-label" for="orderType">Order:</label>
+        <select class="orderType">
+          <option value>--</option>
+          <option value="RATING">RATING</option>
+          <option value="NUM_VOTE">NUM_VOTE</option>
+          <option value="YEAR">YEAR</option>
+        </select>
+      </div>
+      
       <button id="search-by-title-button" type="button" class="btn-sm">
         Search
       </button>
