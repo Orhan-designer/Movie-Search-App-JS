@@ -22,19 +22,7 @@ export const MOVIE_SEARCH_PANEL_TEMPLATE = `
       
       <div class="genres">
         <label class="control-label" for="genres">Genres:</label>
-        <select id="genres">
-          <option value="">--</option>
-          <option value="THRILLER">THRILLER</option>
-          <option value="DRAMA">DRAMA</option>
-          <option value="DETECTIVE">DETECTIVE</option>
-          <option value="FANTASTIC">FANTASTIC</option>
-          <option value="FANTASY">FANTASY</option>
-          <option value="ACTION">ACTION</option>
-          <option value="ADVENTURES">ADVENTURES</option>
-          <option value="COMEDY">ACTION</option>
-          <option value="CARTOON">CARTOON</option>
-          <option value="FAMILY">FAMILY</option>
-        </select>
+        <select id="genres"></select>
       </div>
       
       <div class="order">

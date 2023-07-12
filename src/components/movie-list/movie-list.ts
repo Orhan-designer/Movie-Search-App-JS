@@ -1,4 +1,4 @@
-import { SearchParams } from "../../models/movie.model";
+import { Movie } from "../../models/movie.model";
 export class MovieList {
   private container = document.querySelector('#movie-list') as HTMLDivElement;
 
@@ -7,7 +7,7 @@ export class MovieList {
     data
   }: {
     template?: string;
-    data?: SearchParams[];
+    data?: Movie[];
   }): void {
     if (!this.container) {
       return;
@@ -18,9 +18,8 @@ export class MovieList {
       return;
     }
 
-    data!.filter((el: any) => {
+    data!.filter((el: Movie) => {
       const div = document.createElement('div');
-
       div.className = 'info';
       div.innerHTML = `
         <div>
@@ -35,8 +34,8 @@ export class MovieList {
         <div class="sub-info">
           <p><b>Year</b>: ${el.year}</p>
           <p><b>Type</b>: ${el.type}</p>
-          <p><b>Genres</b>: ${el.genres.map((value: any) => value.genre)}</p>
-        </div>`;
+          <p><b>Genres</b>: ${el.genres.map((value: { genre: string }) => value.genre)}</p>
+        </div>`
 
       this.container?.append(div);
     });

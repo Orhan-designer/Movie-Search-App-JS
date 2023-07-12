@@ -1,8 +1,12 @@
-export interface SearchParams {
-    keyword: string;
+export interface Movie {
+    year: number;
     type: string;
-    order: string;
-    genres: number[];
-    yearFrom: number;
-    yearTo: number;
+    genres: Genre[];
+    ratingImdb: number;
+    posterUrl: string;
+    nameOriginal: string;
+}
+export interface Genre {
+    id?: number;
+    genre: string;
 }
