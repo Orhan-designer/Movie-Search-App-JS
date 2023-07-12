@@ -7,7 +7,7 @@ export class MovieList {
     data
   }: {
     template?: string;
-    data?: SearchParams;
+    data?: SearchParams[];
   }): void {
     if (!this.container) {
       return;
@@ -18,7 +18,7 @@ export class MovieList {
       return;
     }
 
-    Array.from(data as any).filter((el: any) => {
+    data!.filter((el: any) => {
       const div = document.createElement('div');
 
       div.className = 'info';

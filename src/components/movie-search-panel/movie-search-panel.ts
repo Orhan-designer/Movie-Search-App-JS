@@ -20,7 +20,7 @@ export class MovieSearchPanel {
     const keyword = (<HTMLInputElement>document.querySelector('#keyword'))?.value;
     const type = (<HTMLSelectElement>document.querySelector('.movieType'))?.value;
     const order = (<HTMLSelectElement>document.querySelector('.orderType'))?.value;
-    const genres = (<HTMLInputElement>document.querySelector('#genres'))?.value;
+    const genres = (<HTMLSelectElement>document.querySelector('#genres'))?.selectedIndex;
     const yearFrom = (<HTMLInputElement>document.querySelector('#year-from'))?.value;
     const yearTo = (<HTMLInputElement>document.querySelector('#year-to'))?.value;
 
@@ -33,8 +33,7 @@ export class MovieSearchPanel {
       ...(!!yearTo && +yearTo <= 3000 && +yearTo >= 1000 && { yearTo })
     }
 
-    const pars = Object.fromEntries(Object.entries(params).filter(([_, value]) => !!value));
-    const service = await this.movieService.getMovies$(pars);
+    const service = await this.movieService.getMovies$(params);
     this.movieList.renderTemplate({ data: service.items });
   }
 

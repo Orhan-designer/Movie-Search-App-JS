@@ -20,9 +20,23 @@ export const MOVIE_SEARCH_PANEL_TEMPLATE = `
         </select>
       </div>
       
-      <label class="control-label" for="genres">Genres:</label>
-      <input type="text" id="genres" name="genres" />
-
+      <div class="genres">
+        <label class="control-label" for="genres">Genres:</label>
+        <select id="genres">
+          <option value="">--</option>
+          <option value="THRILLER">THRILLER</option>
+          <option value="DRAMA">DRAMA</option>
+          <option value="DETECTIVE">DETECTIVE</option>
+          <option value="FANTASTIC">FANTASTIC</option>
+          <option value="FANTASY">FANTASY</option>
+          <option value="ACTION">ACTION</option>
+          <option value="ADVENTURES">ADVENTURES</option>
+          <option value="COMEDY">ACTION</option>
+          <option value="CARTOON">CARTOON</option>
+          <option value="FAMILY">FAMILY</option>
+        </select>
+      </div>
+      
       <div class="order">
         <label class="control-label" for="orderType">Order:</label>
         <select class="orderType">
