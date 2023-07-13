@@ -2,7 +2,7 @@ import { Movie } from "./movie.model";
 export interface SearchResponse {
     total: number;
     totalPages: number;
-    items: Movie[];
+    items: Movie[]
 }
 export interface SearchParams {
     keyword: string;
