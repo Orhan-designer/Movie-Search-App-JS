@@ -62,7 +62,7 @@ export class MovieSearchPanel {
     ) as HTMLButtonElement;
 
     searchButton.onclick = () => this.getMovie();
-    resetButton.onclick = () => sessionStorage.clear();
+    resetButton.onclick = () => sessionStorage.removeItem('searchParams');
   }
 
   private setSearchInputs(): void {
